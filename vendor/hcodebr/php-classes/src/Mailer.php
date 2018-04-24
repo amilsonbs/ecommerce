@@ -16,7 +16,7 @@ Class Mailer
 	{
 		//Configurando Templates
 		$config = array(
-			"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"] . "/views/email",
+			"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"] . "/views/email/",
 			"cache_dir"     => $_SERVER["DOCUMENT_ROOT"] . "/views-cache/",
 			"debug"         => false // set to false to improve the speed
 		);
@@ -32,7 +32,7 @@ Class Mailer
 		$html = $tpl->draw($tplName, true);
 
 		//Create a new PHPMailer instance
-		$this->mail = new PHPMailer\PHPMailer\PHPMailer();
+		$this->mail = new \PHPMailer();
 
 		//Tell PHPMailer to use SMTP
 		$this->mail->isSMTP();
