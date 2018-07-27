@@ -16,6 +16,20 @@ class Product extends Model
 		return $sql->select("SELECT * FROM tb_products ORDER BY desproduct");
 	}
 
+	static function checkList($list)
+	{
+
+		foreach ($list as $row) {
+			
+			$p = new Product();
+			$p->setData($row);
+			$row = $p->getValues();
+
+		}
+
+		return $list;
+	}
+
 	function save()
 	{
 		$sql = new Sql();
@@ -72,7 +86,7 @@ class Product extends Model
 						$this->getidproduct() . ".jpg"
 					))
 		{
-			$url = "/resources/site/img/products" . $this->getidproduct() . ".jpg";
+			$url = "/resources/site/img/products/" . $this->getidproduct() . ".jpg";
 		} else 
 		{
 			$url = "/resources/site/img/product.jpg";
@@ -123,7 +137,7 @@ class Product extends Model
 
 		$this->checkPhoto();
 
-	}	
+	}
 
 }
 
