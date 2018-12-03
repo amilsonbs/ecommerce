@@ -19,7 +19,7 @@ class Product extends Model
 	static function checkList($list)
 	{
 
-		foreach ($list as $row) {
+		foreach ($list as &$row) {
 			
 			$p = new Product();
 			$p->setData($row);
